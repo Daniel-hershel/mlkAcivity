@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- <link rel="shortcut icon" href="style/images/favicon.png"> -->
+<title>MLK InteractivITY</title>
+<!-- <script src =  "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!--   materialize for grid -->
+<link rel="stylesheet" href="materialize.css">
+<!--   Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+<!-- load vue for working with arrays and front end js -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- load fabric for the front end magic -->
+<script language="javascript" type="text/javascript" src="fabric.js"></script>
+<!-- load interface js -->
+<script language="javascript" type="text/javascript" src="interface.min.js"></script>
+<!-- //fabric  code -->
+<!-- <script language="javascript" type="text/javascript" src="sketch.js"></script> -->
+<!-- load all the google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Cinzel|Josefin+Sans|Modak|Montserrat|Orbitron" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+ <link href="slabtext/css/slabtext.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.slabtexted .slabtext
+    {
+    display: -moz-inline-box;
+    display: inline-block;
+    white-space: nowrap;
+    }
+.slabtextinactive .slabtext
+    {
+    display: inline;
+    white-space: normal;
+    font-size: 1em !important;
+    letter-spacing: inherit !important;
+    word-spacing: inherit !important;
+    *letter-spacing: normal !important;
+    *word-spacing: normal !important;
+    }
+.slabtextdone .slabtext
+    {
+    display: block;
+    }
+
+        .slabtext-linesize-0
+        {
+        line-height:.9;
+        }
+</style>
+</head>
+<body>
+<div class = "row headerBack">
+<div class = "cl s12">
+<div id = "intro">
+
+<h1><span class="slabtext"> Constellation of Concern</span><span class="slabtext">An InteractivITY with</span><span class="slabtext"> Martin Luther King Jr's 'Where Do We Go From Here' Speech</span></h1>
+
+
+</div>
+</div>
+</div>
+
+<div class = "row stage">
+
+<div class = "col s12">
+<h1 style = "color: #000">Explore</h1>
+
+<img id = "stageOne" src = "icons/svg/idea.svg" height = "350">
+</div>
+</div>
+<div class = "row darkBackAlt">
+<div class = "cl s12">
+
+<!-- <button class = ""> Listen to the speech </button> -->
+<audio src="mlkClip.mp3"></audio>
+<button class="toggle">Play</button>
+<p>On August 16th, 1967 Dr. Martin Luther King Jr. gave a speech at the 11th annual Southern Christian Leadership Conference <a href = "http://kingencyclopedia.stanford.edu/encyclopedia/encyclopedia/enc_southern_christian_leadership_conference_sclc/">(SCLC) </a>Convention in Atlanta Georgia titled</p>
+<h1><span class="slabtext"> Where Do We Go From Here? </span> <span class="slabtext">Community or Chaos </span></h1>
+<div class="music">
+  <div class="barOne bar"></div>
+  <div class="barTwo bar"></div>
+  <div class="barThree bar"></div>
+</div>
+<a href = "sourceMaterial.html">See Source Text</a>
+
+</div>
+</div>
+
+
+
+<!--/.bg-wrapper -->
+<div class = "row videoHolder">
+<div class = "col s12">
+<video poster="" id="bgvid" playsinline autoplay muted loop>
+<source src="http://www.danielsilber-baker.com/myHostedContent/MartinLutherKing.mp4" type="video/mp4">
+</video>
+<div class="bodyPart">
+<h1>IN THE SPEECH HE DESCRIBES HIS 'CONSTELLATIOIN OF CONCERNS'
+</h1>
+<p>"And the other thing is, I'm concerned about a better world. I'm concerned about justice; I'm concerned about brotherhood; I'm concerned about truth. (That’s right)."
+</p>
+<!-- <button>Pause</button> -->
+</div>
+</div>
+</div>
+
+<!-- <div class="bodyPartLeft"> -->
+<div class = "row stage">
+
+
+<div class = "col s12">
+<h1 style = "color: #000">Engage</h1>
+<img id = "stageTwo" src = "icons/svg/network.svg" height = "350">
+<div class = "instructions">Using the 'magic canvas' below, create your own visual representation of MLK's conerns. <br />  Some of the controls you can use on 'magic canvas':
+  <ul>
+    <li>
+       Select an object to make it active.
+    </li>
+    <li>
+  Hold and drag to move object
+    </li>
+    <li>
+      Drag from corners to change size
+    </li>
+    <li>
+      Rotate from box on top
+    </li>
+    <li>
+      Drag across canvas to select, group, and manipulate multiple objects
+    </li>
+  </ul>
+   Try exploring different connections and ways you can form meaning using all the manipulation tools available.</div>
+</div>
+</div>
+
+
+
+
+
+
+<canvas id="canvasTwo" class = "theCanvas" width="" height="550" style="border:1px solid #000000"></canvas>
+<div id="app-4">
+
+<div class = "row stage">
+<div class = "col s12">
+<h1 style = "color: #000">Re-Create</h1>
+<img id = "stageThree" src = "icons/svg/magic-wand.svg" height = "350">
+<div class = "instructions"> Now we are going to build our own constellations! You will end up with a 'magic canvas,' like the one above with MLK's constellation of concern,  except you will get to decide what words, and colors are used for your canvas. </div>
+</div>
+</div>
+
+<div class="row darkBackAlt">
+  <div class = "col s4">
+<h1><span class = "slabtext"> 1 </span></h1>
+</div>
+<div class = "col s8 cardholder">
+  <!-- <div class = "cardholder"> -->
+<h1>  <span class = "slabtext">  choose which of Martin Luther King's concerns</span> <span class = "slabtext">to bring with you on to your magical canvas</span></h1>
+
+
+
+<ul>
+<!-- iterate and for each entry create a list item with a class for materialize grid -->
+<li v-for="todo in todos" class="col s3 ">
+<input type="checkbox" :id="todo.text" :value="todo.text" v-model="checkedNames">
+<label :for="todo.text">  {{ todo.text }}</label>
+</li>
+</ul>
+</div>
+
+</div>
+
+<!-- choose your own -->
+
+<div class="row darkBackAlt">
+  <div class = "col s4">
+<h1><span class = "slabtext"> 2 </span></h1>
+</div>
+<div class = "col s8 cardholder">
+
+<h1> <span class = "slabtext">Choose two of your own 'concerns'.</span></h1>
+<p>{{ message }}</p>
+<input id="userConcernOne" v-model="message" :value="message">
+<button class="ghost-button-rounded-corners" v-on:click="addConcern">Add 1</button>
+<p>{{ my_message }}</p>
+<input id="userConcernTwo" v-model="my_message" :value="my_message">
+<button class="ghost-button-rounded-corners" v-on:click="addConcernTwo">Add 2</button>
+</div>
+</div>
+
+<div class="row darkBack">
+<div class = "cl s12">
+<h1>Double Check Your Concerns</h1>
+<h2>Your Concerns: {{ checkedNames }}</h2>
+<h2>Press GENERATE when you're ready to create your canvas</h2>
+<a class="btn btn-outline btn-outline-xl outline-light" onclick="create()" href="#/"><span class="fa fa-heart pomegranate"></span> Generate</a>
+</div>
+</div>
+
+
+
+
+
+<!-- create label and textarea for user input to append to magic canvas -->
+<!-- create the fabric canvas -->
+<canvas id="canvas" class="theCanvas" width="" height="550" style="border:1px solid #000000"></canvas>
+
+<div class = "row darkBackAlt">
+  <div class="col s12 m6 l6">
+
+<div id="controls">
+  <h1> Background Color </h1>
+</div>
+</div>
+  <div class="col s12 m6 l6">
+<div id="controlsText">
+  <h1> Text Color </h1>
+
+</div>
+
+</div>
+</div>
+<div class="row stage" style = "color: #000">
+
+<div class="col s12 m12 l12">
+<h3>Wrapping Together and Up</h3>
+
+
+<p>After Martin Luther King states his concerns, he says "And when one is concerned about that, he can never advocate violence."</p>
+<p>Looking at your 'constellation of concern,' add one more piece to your canvas, by completing the prompt below based on your concerns.</p>
+</div>
+</div>
+
+<div class="row stage" style = "color: #000">
+<div class="col s4">
+<h3>MLK's Version</h3>
+<p>And the other thing is, I'm concerned about a better world. I'm concerned about justice; I'm concerned about brotherhood; I'm concerned about truth. (<i>That’s right</i>) And when one is concerned about that, he can never advocate violence.</p>
+</div>
+<div class="col s4">
+<h3>Your Version</h3>
+<p>
+    I'm concerned about {{ checkedNames }}
+</p>
+
+<ol>
+  <li v-for="checkedName in checkedNames">
+    {{ checkedNames}}
+  </li>
+</ol>
+<p>{{ finalThought }}</p>
+<input v-model="finalThought">
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- end app 4? -->
+
+<!-- /footer -->
+<!-- <div id="share-bar"></div> -->
+
+<!--/.body-wrapper -->
+<script src="style/js/jquery.min.js"></script>
+<script src="style/js/bootstrap.min.js"></script>
+<script src="style/js/plugins.js"></script>
+<script src="style/js/jquery.themepunch.tools.min.js"></script>
+<script src="style/js/scripts.js"></script>
+<script>
+const sound = document.querySelector("audio"),
+  toggle = document.querySelector(".toggle"),
+  one = document.querySelector(".barOne"),
+  two = document.querySelector(".barTwo"),
+  three = document.querySelector(".barThree");
+let state = false;
+one.classList.add("paused");
+two.classList.add("paused");
+three.classList.add("paused");
+//start audio
+
+sound.pause()
+
+//playing and pausing
+
+document.querySelector(".toggle").addEventListener("click", function() {
+  if (state === true) {
+    sound.pause()
+    state = false;
+    toggle.innerHTML = "Play"
+    one.classList.add("paused");
+    two.classList.add("paused");
+    three.classList.add("paused");
+  } else {
+    sound.play()
+    state = true;
+    toggle.innerHTML = "Pause"
+    one.classList.remove("paused");
+    two.classList.remove("paused");
+    three.classList.remove("paused");
+  }
+});
+
+// Replaying
+
+document.querySelector("audio").addEventListener("ended", function() {
+  toggle.innerHTML = "Replay";
+  one.classList.add("paused");
+  two.classList.add("paused");
+  three.classList.add("paused");
+  state = false;
+  document.querySelector(".toggle").addEventListener("click", function() {
+    if (state === true) {
+      sound.pause()
+      state = false;
+      toggle.innerHTML = "Play"
+      one.classList.add("paused");
+      two.classList.add("paused");
+      three.classList.add("paused");
+    } else {
+      sound.play()
+      state = true;
+      toggle.innerHTML = "Pause"
+      one.classList.remove("paused");
+      two.classList.remove("paused");
+      three.classList.remove("paused");
+    }
+  });
+})
+</script>
+
+<script>
+var app4 = new Vue({
+el: '#app-4',
+data: {
+todos: [
+{ text: 'Truth' },
+{ text: 'Brotherhood' },
+{ text: 'Justice' },
+{ text: 'A Better World' }
+],
+checkedNames: [],
+finalThought: '',
+message: 'concern one',
+my_message: 'concern two'
+},
+methods: {
+addConcern: function (event) {
+app4.checkedNames.push(app4.message);
+// app4.checkedNames.push({text: app4.message});
+},
+addConcernTwo: function (event) {
+app4.checkedNames.push(app4.my_message);
+}
+}
+})
+// app4.todos.push({ text: 'New item' })
+</script>
+<script>
+//create one grouped icon and title
+var canvasTwo =new fabric.Canvas('canvasTwo')
+//make the fabric canvas the full width of the window
+window.addEventListener('resize', resizeCanvas, false);
+function resizeCanvas() {
+// canvasTwo.setHeight(window.innerHeight);
+canvasTwo.setWidth(window.innerWidth);
+canvasTwo.renderAll();
+}
+// resize on init
+resizeCanvas();
+var yDown = 200;
+canvasTwo.setBackgroundImage('style/backgrounds/chalkboard.png',canvasTwo.renderAll.bind(canvasTwo), {
+    backgroundImageStretch: false
+});
+fabric.Image.fromURL('http://www.danielsilber-baker.com/myHostedContent/mlkIcons/icons/lulu-bell.png', function(img) {
+// canvas.add(oImg);
+var img1 = img.scale(0.5);
+// var img1 = img.scale(0.5).set({ left: 100, top: 100 });
+var text = new fabric.Text(app4.todos[2].text, {
+// fontFamily:  'Alfa Slab One',
+fontSize:40,
+fill: '#fffff8',
+originX: 'center',
+originY: 'center',
+left: 120
+});
+// var imgElement = document.getElementById('my-image');
+// var imgInstance = new fabric.Image(imgElement, {
+//   opacity: 0.85
+// });
+canvasTwo.add(new fabric.Group([ img1, text], { left: 0, top: 150 }))
+});
+//group 2
+// <img src="style/images/icons/lulu-link.png" id="my-image2" width = "20%">
+fabric.Image.fromURL('http://www.danielsilber-baker.com/myHostedContent/mlkIcons/icons/lulu-link.png', function(img) {
+// canvas.add(oImg);
+var img2 = img.scale(0.5);
+// var img1 = img.scale(0.5).set({ left: 100, top: 100 });
+var text2= new fabric.Text(app4.todos[1].text, {
+// fontFamily:  'Alfa Slab One',
+fontSize:40,
+fill: '#fffff8',
+originX: 'center',
+originY: 'center',
+left: 120
+});
+// var imgElement = document.getElementById('my-image');
+// var imgInstance = new fabric.Image(imgElement, {
+//   opacity: 0.85
+// });
+canvasTwo.add(new fabric.Group([ img2, text2], { left: (window.innerWidth * .22), top: 150 }))
+});
+//group 3
+fabric.Image.fromURL('http://www.danielsilber-baker.com/myHostedContent/mlkIcons/icons/lulu-flower.png', function(img) {
+// canvas.add(oImg);
+var img3 = img.scale(0.5);
+// var img1 = img.scale(0.5).set({ left: 100, top: 100 });
+var textThree= new fabric.Text(app4.todos[3].text, {
+// fontFamily:  'Alfa Slab One',
+fontSize:40,
+fill: '#fffff8',
+originX: 'center',
+originY: 'center',
+left: 120
+});
+// var imgElement = document.getElementById('my-image');
+// var imgInstance = new fabric.Image(imgElement, {
+//   opacity: 0.85
+// });
+canvasTwo.add(new fabric.Group([ img3, textThree], { left: (window.innerWidth * .47), top: 150 }))
+});
+//group 4 - Truth
+fabric.Image.fromURL('http://www.danielsilber-baker.com/myHostedContent/mlkIcons/icons/lulu-eye.png', function(img) {
+// canvas.add(oImg);
+var img4= img.scale(0.5);
+// var img1 = img.scale(0.5).set({ left: 100, top: 100 });
+var textFour= new fabric.Text(app4.todos[0].text, {
+// fontFamily:  'Alfa Slab One',
+fontSize:40,
+fill: '#fffff8',
+originX: 'center',
+originY: 'center',
+left: 120
+});
+// var imgElement = document.getElementById('my-image');
+// var imgInstance = new fabric.Image(imgElement, {
+//   opacity: 0.85
+// });
+canvasTwo.add(new fabric.Group([ img4, textFour], { left: (window.innerWidth * .75), top: 150 }))
+});
+
+canvasTwo.selectionColor = 'rgba(0,255,0,0.3)';
+canvasTwo.selectionBorderColor = 'red';
+canvasTwo.selectionLineWidth = 5;
+</script>
+<script>
+var canvas =new fabric.Canvas('canvas');
+canvas.selectionColor = 'rgba(0,255,0,0.3)';
+canvas.selectionBorderColor = 'red';
+canvas.selectionLineWidth = 5;
+window.addEventListener('resize', resizeCanvas, false);
+function resizeCanvas() {
+canvas.setWidth(window.innerWidth);
+canvas.renderAll();
+}
+// resize on init
+resizeCanvas();
+//set the function to run on button press
+//get value of box
+//make it a farbic text object
+var textHolder = [];
+function create(){
+for (i = 0; i < app4.checkedNames.length; i++) {
+var text = new fabric.Text(app4.checkedNames[i], {
+fontFamily:  'Alfa Slab One',
+fontSize:40,
+fill: '#FEFD95',
+left: yDown,
+top: 150*i });
+canvas.add(text)
+textHolder.push(text);
+console.log(textHolder);
+
+console.log(yDown)
+}
+}
+
+// variables for length of buttons
+var buttonLength = .6;
+//y placement of buttons
+var y = .05;
+// create controls for text color
+//make a new panel to hold controls
+panelText = new Interface.Panel({
+bounds:[.5,.5,.5,.5],
+container:  document.getElementById("controlsText")
+});
+//create button
+f= new Interface.Button({
+bounds:[.01,y,.15,buttonLength],
+mode:'contact',
+ontouchmouseup: function() {
+textHolder[0].set({fill: '#000'})
+
+for (i = 0; i < textHolder.length; i++) {
+
+textHolder[i].set({fill: '#000'})
+
+}
+canvas.renderAll();
+}
+});
+
+g= new Interface.Button({
+bounds:[.2,y,.15,buttonLength],
+mode:'contact',
+ontouchmouseup: function() {
+// textHolder[0].set({fill: '#F87E7B'})
+
+for (i = 0; i < textHolder.length; i++) {
+//if selected-for each button
+textHolder[i].set({fill: '#F87E7B'})
+
+}
+canvas.renderAll();
+}
+});
+
+h= new Interface.Button({
+bounds:[.4,y,.15,buttonLength],
+mode:'contact',
+ontouchmouseup: function() {
+
+for (i = 0; i < textHolder.length; i++) {
+
+textHolder[i].set({fill: '#00A8C6'})
+
+}
+canvas.renderAll();
+}
+});
+
+j= new Interface.Button({
+bounds:[.6,y,.15,buttonLength],
+mode:'contact',
+ontouchmouseup: function() {
+
+
+for (i = 0; i < textHolder.length; i++) {
+
+textHolder[i].set({fill: '#B9D7D9'})
+
+}
+canvas.renderAll();
+}
+});
+
+k= new Interface.Button({
+bounds:[.8,y,.15,buttonLength],
+mode:'contact',
+ontouchmouseup: function() {
+
+for (i = 0; i < textHolder.length; i++) {
+
+textHolder[i].set({fill: '#E4E391'})
+
+}
+canvas.renderAll();
+}
+});
+g.background = '#F87E7B';
+h.background = '#00A8C6';
+j.background = '#B9D7D9';
+k.background = '#E4E391';
+panelText.add(f);
+panelText.add(g);
+panelText.add(h);
+panelText.add(j);
+panelText.add(k);
+
+// panelText.background = '#3baacf';
+
+
+var x = document.getElementById("canvas");
+
+// second panel
+panel = new Interface.Panel({
+
+container:  document.getElementById("controls")
+});
+// create buttons
+// !issue I need to figure out how to make the button dimensions responsive
+a = new Interface.Button({
+bounds:[.01,y,.15,buttonLength],
+mode:'contact',
+// label:'red' ,
+ontouchmouseup: function() {
+x.style.backgroundColor = "#05676E";
+}
+});
+b = new Interface.Button({
+bounds:[.2,y,.15,buttonLength],
+mode:'contact',
+// label:'#489C79' ,
+stroke: 'white',
+ontouchmouseup: function() {
+x.style.backgroundColor = "#331327";
+}
+});
+c = new Interface.Button({
+bounds:[.4,y,.15,buttonLength],
+mode:'contact',
+// label:'blue' ,
+stroke: 'white',
+ontouchmouseup: function() {
+x.style.backgroundColor = "#fffff8";
+}
+});
+d= new Interface.Button({
+bounds:[.6,y,.15,buttonLength],
+mode:'contact',
+// label:'pink' ,
+stroke: 'white',
+ontouchmouseup: function() {
+x.style.backgroundColor = "#26251C";
+}
+});
+e = new Interface.Button({
+bounds:[.8,y,.15,buttonLength],
+mode:'contact',
+// label:'yellow' ,
+stroke: 'white',
+ontouchmouseup: function() {
+x.style.backgroundColor = "#951F2B";
+}
+});
+
+
+a.stroke = 'white';
+a.background = '#05676E';
+b.background = '#331327';
+c.background = '#fffff8';
+d.background = '#26251C';
+e.background = '#951F2B';
+// panel.add(menu);
+panel.add(a);
+panel.add(b);
+panel.add(c);
+panel.add(d);
+panel.add(e);
+</script>
+<script>
+var vid = document.getElementById("bgvid");
+var pauseButton = document.querySelector("#bodyPart button");
+function vidFade() {
+vid.classList.add("stopfade");
+}
+vid.addEventListener('ended', function()
+{
+// only functional if "loop" is removed
+vid.pause();
+// to capture IE10
+vidFade();
+});
+pauseButton.addEventListener("click", function() {
+vid.classList.toggle("stopfade");
+if (vid.paused) {
+vid.play();
+pauseButton.innerHTML = "Pause";
+} else {
+vid.pause();
+pauseButton.innerHTML = "Paused";
+}
+})
+</script>
+
+
+<!-- call for slabtext -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+   <script src="slabtext/js/jquery.slabtext.min.js"></script>
+   <script>
+   // Function to slabtext the H1 headings
+   function slabTextHeadlines() {
+       $("h1").slabText({
+           // Don't slabtext the headers if the viewport is under 380px
+           "viewportBreakpoint":380
+       });
+   };
+   // Load fonts using google font loader
+   var WebFontConfig = {
+       google: { families: [ 'Open+Sans:400,700:latin', 'Oswald:700:latin' ] },
+       // slabText the headers when the font has finished loading (or not)
+       fontactive: slabTextHeadlines,
+       fontinactive: slabTextHeadlines
+   };
+   (function() {
+       var wf = document.createElement('script');
+       wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+       wf.type = 'text/javascript';
+       wf.async = 'true';
+       var s = document.getElementsByTagName('script')[0];
+       s.parentNode.insertBefore(wf, s);
+   })();
+   </script>
+
+</body>
+</html>

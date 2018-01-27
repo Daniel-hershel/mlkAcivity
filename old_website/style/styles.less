@@ -1,0 +1,78 @@
+@baseD: #9DBCBC;
+@baseB: #AB526B;
+@skinnyBoy: #6A6B5F;
+@cherryIce: #A43955;
+@lightDay: #EFEAE4;
+@notePad: #F2C45A;
+@chalkBlue: #111625;
+@mellowYeller:#FEFD95;
+@blueEye: #384956;
+
+body {
+background-color: @mellowYeller;
+font-size: 2em;
+color: @chalkBlue;
+padding-left: 15%;
+padding-right: 15%;
+
+}
+
+h1 {
+font-size: 36px;
+}
+
+h2{
+font-size: 27px;
+
+}
+
+.instructionsSmall {
+  font-size:16px;
+}
+
+
+.instructions{
+font-size: 27px;
+line-height: 110%;
+
+}
+#canvasTwo{
+	font-family: 'Alfa Slab One', cursive;
+	background-color: @chalkBlue;
+color: @lightDay;
+}
+
+#canvas {
+	  font-family: 'Alfa Slab One', cursive;
+    background-color: @chalkBlue;
+color: @lightDay;
+// width: 100%;
+// height: 50%;
+// padding:0;
+  // position: fixed;
+  // top: 320;
+  // left: 0;
+  // right: 0;
+  // bottom: 0;
+
+}
+
+#inputZone {
+	 padding-bottom: 20px;
+	 margin-bottom: 50px;
+	 border:1px solid #000000;
+
+}
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-active {
+  transform: translateX(10px);
+  opacity: 0;
+}

@@ -1,0 +1,62 @@
+
+
+
+
+body {
+background-color: #f2f1db;
+font-size: 2em;
+
+}
+
+
+#canvas {
+	  font-family: 'Alfa Slab One', cursive;
+    background-color: #FCF7F7;
+  
+
+}
+.ghost-buttonToo{
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #0F3B72;
+  border: 1px solid #0F3B72;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+font-family: 'Modak', cursive;
+
+}
+.ghost-button {
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #0F3B72;
+  font-family: 'Alfa Slab One', cursive;
+  border: 1px solid #0F3B72;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+}
+
+
+
+// .ghost-button-border-color {
+//   display: inline-block;
+//   width: 200px;
+//   padding: 8px;
+//   color: #fff;
+//   border: 2px solid #fff;
+//   text-align: center;
+//   outline: none;
+//   text-decoration: none;
+//   transition: border-color 0.3s ease-out,
+//               color 0.3s ease-out;
+// }
+// .ghost-button-border-color:hover,
+// .ghost-button-border-color:active {
+//   color: #66d8ed;
+//   border-color: #66d8ed;
+//   transition: border-color 0.4s ease-in,
+//               color 0.4s ease-in;
+// }

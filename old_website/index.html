@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MLK InteractivITY</title>
+
+<!--Import Google Icon Font-->
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Khula:400,600" rel="stylesheet">
+
+<link href="style/slabtext.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<div id = "app">
+
+<!-- Intro -->
+<div id  = "titleScene" class = "content">
+<div class = "welcome">
+<h2>Constellation of Concern </h2>
+<h2>An InteractivITY with  Dr. Martin Luther King Jr's Speech </h2>
+<h2>'Where Do We Go From Here'</h2>
+</div>
+</div>
+
+<!-- EXPLORE: title -->
+<div id = "explore" class = "content stage">
+<div class = "topThird">
+<i class="large  material-icons">search</i>
+</div>
+<div class = "sectionTitle bottomTwoThird">
+<div class = "interactiveTitle" id = "exploreTitle">
+<h1>Explore</h1>
+</div>
+</div>
+</div>
+
+
+<!-- Explore: content -->
+<div id = "exploreContent" class = "content ">
+<div class = "context">On August 16th, 1967 Dr. Martin Luther King Jr. gave a speech at the 11th annual Southern Christian Leadership Conference (SCLC) Convention in Atlanta, Georgia titled <span style = "color: #850013"> 'Where Do We Go From Here? Community or Chaos'</span>
+</div>
+
+<div class = "holder">
+
+<!-- <audio id = "player" src="audio/mlkClip.mp3"></audio> -->
+<audio id = "player" src="http://www.danielsilber-baker.com/mlkActivity//mlkClip.mp3"></audio>
+<button class="toggle generate">Play</button>
+<div id = "quote" class = "quote" >"And the other thing is,  I'm concerned about a better world.  I'm concerned about justice;  I'm concerned about brotherhood; I'm concerned about truth."
+</div>
+</div>
+</div>
+
+<!-- ENGAGE: titile -->
+
+<div id = "engageTitle" class = "content stage">
+<div class = "topThird">
+<i  id= "engageIcon" class="large  material-icons">explicit</i>
+</div>
+
+
+<div class = "sectionTitle bottomTwoThird">
+<div class = "interactiveTitle" id = "engage">
+<h1>Engage</h1>
+</div>
+</div>
+</div>
+
+<!-- ENGAGE: content -->
+
+<div id = "engageCanvas" class = "content">
+
+<!-- <div class = " canvasInstructions">
+<div class = " instructionTitle">Using the Magic Canvas below, create your own visual representation of MLK's conerns. </div>
+<div class = "hints">
+<p>HINTS:</p>
+<p>Select an object to make it active.</p>
+<p>Hold and drag to move object.</p>
+<p>Rotate using handle on very top of objects.</p>
+<p>Drag across canvas to select, group, and manipulate multiple objects.</p>
+</div>
+</div>
+<div class = "canvasHolder">
+<canvas id="canvasTwo" class = "theCanvas" width="" height="" style="border:1px solid #000000"></canvas>
+</div> -->
+
+<iframe height='100%' scrolling='no' title='mlk constellation of concern for interactivity' src='//codepen.io/Daniel_Silber-Baker/embed/opMeOj/?height=422&theme-id=26830&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/Daniel_Silber-Baker/pen/opMeOj/'>mlk constellation of concern for interactivity</a> by Daniel Silber-Baker (<a href='https://codepen.io/Daniel_Silber-Baker'>@Daniel_Silber-Baker</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+</div>
+
+<!--END ENGAGE -->
+
+
+<!--RECREATE -->
+
+<!-- <div id="app-4"> -->
+
+<div class = "content stage">
+
+<div class = "topThird">
+<i  id= "reCreateIcon" class="large material-icons">swap_vertical_circle</i>
+</div>
+<div class = "sectionTitle bottomTwoThird">
+<div id = "reCreate">
+<h1>Re-Create</h1>
+</div>
+</div>
+
+</div>
+
+<!-- end title -->
+<!-- start options -->
+
+<div id = "recreate" class="content">
+
+<div class = "innerContent">
+<div class = "explanation">
+<div class = "instructionTitle">
+Mixed Constellations You & MLK 
+</div>
+<p class = "instructionSmall">
+ Select as many of MLK's concerns as you want to bring on to your canvas:
+</p>
+
+</div>
+</div>
+
+<div class = "innerContent">
+<div class = "cardHolder">
+<p v-for="todo in todos" class="slideTwo ">
+<input type="checkbox"  :id="todo.text" :value="todo.text" v-model="checkedNames" style="opacity:0">
+<label :for="todo.text" class = "labels">  {{ todo.text }}</label>
+</p>
+</div>
+
+<div class = "generateHolder" >
+<a  class = "generate" onclick="create()" href="#canvas">  GENERATE CANVAS </a>
+</div>
+</div>
+</div>
+
+<!-- end re-create options -->
+
+
+<!-- start recreate canvas -->
+<div class = " content contentCanvas">
+<div class = "recreateHolder">
+
+<div class = "controlPanel">
+
+
+<h5 style = "color:#444"> BG COLOR MAKER </h5>
+
+<canvas nx="slider" label="H" style="width:25px;height:150px;"></canvas>
+<canvas nx="slider" label="S" style="width:25px;height:150px;"></canvas>
+<canvas nx="slider" label="L" style="width:25px;height:150px;"></canvas>
+<!-- </div> -->
+<!-- <div class="floatLeft"> -->
+<h5 style = "color:#444"> TEXT COLOR MAKER </h5>
+<!-- <canvas nx="envelope" label="filter" style="width:310px;height:1250px;"></canvas> -->
+<canvas nx="slider" label="H" style="width:25px;height:150px"></canvas>
+<canvas nx="slider" label="S" style="width:25px;height:150px"></canvas>
+<canvas nx="slider" label="L" style="width:25px;height:150px"></canvas>
+</div>
+
+<div class = "interactiveCanvasHolder">
+
+<!-- create the fabric canvas -->
+<canvas id="canvas" class="theCanvas" width="" height="" style="border:1px solid #000000"></canvas>
+</div>
+
+<div class = "textCanvas">
+<input class = "userInput" v-model="message" :value="message">
+<div class = "buttonHolder">
+<button id = "textButton" class = "generate" v-on:click="addConcern" href="#canvas">ADD TEXT</button>
+
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- END INTERACTIVE CANVAS-->
+
+<!-- FINAL SECTION! TITLE -->
+
+<div  id = "wrapUpTitle" class = "content stage">
+
+<div class = "topThird">
+
+<i  id= "wrapcon" class="large  material-icons">settings_backup_restore</i>
+</div>
+<div class = "sectionTitle bottomTwoThird">
+<!-- <h1 id = "wrap">Wrapping Up Together</h1> -->
+<div class = "interactiveTitle" id = "wrap">
+<h1> Wrapping-Up </h1>
+
+</div>
+</div>
+
+</div>
+
+<!-- FINAL SECTION! -->
+
+
+<div id = "wrapUp" class="content" style = "color: #444">
+
+<!-- <div class="innerContent"> -->
+<!-- <div class = "holder"> -->
+<h5>MARTIN LUTHER KING JR'S QUOTE:</h5>
+
+<div class = "finalQuote">"I'm concerned about a better world.  I'm concerned about justice;  I'm concerned about brotherhood; I'm concerned about truth.<span style = "color: rgba(68, 68, 68, .7); opacity:1 "> (That’s right!).</span> <span style = "color:#820023;">And when one is concerned about that, he can never advocate violence.</span>
+<!-- </div> -->
+</div>
+</div>
+
+<!-- </div> -->
+
+<div id = "wrapUpToo" class="content" style = "color: #444">
+<div class="innerContent">
+<h5> YOUR VERSION: </h5>
+
+<div id = "finalScene" class = "finalQuote">
+</div>
+
+<div id = "toRemove">
+
+<div class="innerContent">
+
+<div class="finalInstructions">
+
+Looking at your 'constellation of concern,' add one more piece to your canvas, by completing the prompt below based on your concerns.
+
+</div>
+
+</div>
+<div class="innerContent">
+
+<div class="userFinalQuote">
+
+I'm concerned about {{ checkedNames }}, {{message}}
+</div>
+<div class="userFinalQuote" style = "color:#820023;">
+
+And when one is concerned about that...
+</div>
+</div>
+<div class="innerContent">
+
+<!-- <h3>{{ finalThought }}</h3> -->
+<input class = "userInput" v-model="concern" :value="concern">
+<div class = "buttonHolder">
+<button class = "generate" v-on:click="finalPiece">FINISH</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- <input  class = "userInput" v-model="finalThought" > -->
+<!-- </div> -->
+
+<!-- <div class="innerContent">
+<p> Coding and Content by <a href = "http://www.danielsilber-baker.com"> Daniel Silber-Baker</a></p>
+</div> -->
+
+</div>
+
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<!-- Fittext -->
+<script src="libraries/jquery/jquery.fittext.js"></script>
+<script>
+jQuery("#titleScene").fitText(1.2, { minFontSize: '30.9vh', maxFontSize: '60vh ' });
+jQuery(".interactiveTitle").fitText(1.2, { minFontSize: '45.9vh', maxFontSize: '80vh ' });
+jQuery("#reCreate").fitText(1.2, { minFontSize: '35.9vh', maxFontSize: '80vh ' });
+jQuery("#wrap").fitText(1.2, { minFontSize: '35.9vh', maxFontSize: '80vh ' });
+jQuery(".canvasInstructions").fitText(1.2, { minFontSize: '10.9vh', maxFontSize: '50vh ' });
+jQuery(".explanation").fitText(1.2, { minFontSize: '10.9vh', maxFontSize: '50vh ' });
+jQuery("#wrapUp").fitText(1.2, { minFontSize: '10.9vh', maxFontSize: '70vh ' });
+jQuery("#wrapUpToo").fitText(1.2, { minFontSize: '10.9vh', maxFontSize: '70vh ' });
+jQuery("#exploreContent").fitText(1.2, { minFontSize: '10.9vh', maxFontSize: '50vh ' });
+jQuery(".labels").fitText(1.2, { minFontSize: '10.9vh', maxFontSize: '40vh ' });
+</script>
+
+<script src="libraries/nexusUI.js"></script>
+
+<!-- <script src="libraries/vue.min.js"></script> -->
+<script src=" https://cdn.jsdelivr.net/npm/vue"></script>
+
+
+<script language="javascript" type="text/javascript" src="libraries/fabric.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.4.3/velocity.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.4.3/velocity.ui.min.js"></script>
+<script src="libraries/jquery/jquery.blast.min.js"></script>
+<script src="libraries/jquery/jquery.lettering.js"></script>
+<script src="libraries/oridomi.min.js"></script>
+<script src="app.js"></script>
+
+<!-- vue compnents and data + methods -->
+<script>
+
+var app4 = new Vue({
+el: '#app',
+// el: '#app-4',
+data: {
+todos: [
+{ text: 'Truth' },
+{ text: 'Brotherhood' },
+{ text: 'Justice' },
+{ text: 'A Better World' }
+],
+checkedNames: [],
+finalThought: 'And when one is concerned about that,',
+message: '',
+concern: ' '
+// my_message: '',
+// my_third_message:''
+},
+methods: {
+addConcern: function (event) {
+//this is a fabric call inside a vue function
+// create new text object on canvas when button with 'addConcern'  as trigger is pressed 
+var text = new fabric.Text(app4.message, {
+fontFamily:  'Oswald',
+fontSize:40,
+fill: '#444',
+left: 0,
+top: 15*i });
+canvas.add(text)
+textHolder.push(text);
+// console.log(app4.message)
+
+},
+
+//function to produce users final scene
+finalPiece: function (event) {
+
+var selector = $('#finalScene')
+selector.append("I AM CONCERENED ABOUT" + app4.checkedNames + " "+ app4.message + " "+ "AND WHEN ONE IS CONCERENED ABOUT THAT" + app4.concern)
+
+$('#toRemove').remove()
+  }
+
+}
+})
+</script>
+
+<!-- QUOTE ANIMATION-->
+
+<script>
+
+
+//make a function that does when button is pressed this is launched. How to do play/pause? I'm not sure I can? or is there a velocity. pause?
+
+$("#quote").blast({
+delimiter: "word",
+generateValueClass: true,
+customClass: "quoted",
+});
+
+var $elementWord = $('#quote')
+
+// $element.velocity
+// $elementWord.velocity({
+
+// p:{fontSize: '-=15%;', }, o: {duration:10}
+// })
+
+$.Velocity.RegisterUI("quote", {
+defaultDuration: 500,
+calls: [
+
+[ { fontSize: '+=35%',  color: '#850013'}, 1 ],
+[{translateX: 90}, .2],
+]
+});
+
+
+$(".toggle").click(function() {
+console.log('in there')
+var $element = $('.quoted')
+
+var animeTime = 400;
+var animate = []
+for (var i = 0; i < $element.length; i++){
+phaseOne =  { e: $element[i], p: "quote" , options: {duration: animeTime}},
+// phaseTwo =  { e:$element[i] , p: "exploreChaos" , options: {delay: 100, duration: animeTime, complete: function(){
+animate.push(phaseOne)
+// animate.push(phaseTwo)
+
+}
+
+
+$.Velocity.RunSequence(animate);
+
+})
+
+
+</script>
+
+<!-- INTERACTIVE ELEMENTS -->
+<!-- BEHAVIOR FOR INTERACTIVE ELEMENTS TO SHOW THEY CAN BE INTERACTED WITH -->
+<script>
+
+$.Velocity.RegisterUI("interAct", {
+defaultDuration: 1000,
+calls: [
+//option one for showing interactive possibilities scaling font size
+// [ { scale: .7}, 1, {loop:true} ]
+// [ { borderLeftWidth: '+=.5em', borderTopWidth: '+=.5em', borderRightWidth: '+=.5em', borderBottomWidth: '+=.5em'}, 1, {loop:true} ],
+// [ { borderTopWidth: '+=.5em'}, 1, {delay : 100, loop:true} ],
+// [ { borderRightWidth: '+=.5em'}, 1, {delay : 200, loop:true} ],
+// [ { borderBottomWidth: '+=.5em'}, 1, {delay : 300, loop:true} ]
+// [ { boxShadowY: '+=.3em', boxShadowSpread: '+=3em'}, 1, {delay : 10, loop:true} ],
+[ { borderLeftWidth: '+=.3em'}, 1, {delay : 10, loop:true} ],
+// [ { boxShadowX: '+=.3em', boxShadowY: '+=.3em', boxShadowBlur: '+=1em', boxShadowSpread: '+=.3em'}, 1, {delay : 10, loop:true} ],
+]
+});
+
+
+
+//select all section titles
+var $elementGrab = $('.interactiveTitle')
+
+//add class isInteractive
+$elementGrab.toggleClass("isInteractive")
+
+//create a variable to hold the elements with class isInteractive
+var $element = $('.isInteractive')
+
+//set the animation for those elements in motions
+$element.velocity({
+
+p:'interAct', o: {duration:1000}
+})
+
+//create an event listener for the interactive titles and on click remove the class 'isInteractive' of that title so that it stops its interactive animation and can start it's unique animations
+$('.interactiveTitle').click(function(){
+
+// remove class is interactive
+ $(this).removeClass('isInteractive')
+ console.log('removed class')
+})
+
+
+
+</script>
+
+<!-- EXPLORE TITLE CARD VELOCITY ANIMATION-->
+
+<script>
+
+
+$("#exploreTitle").blast({
+delimiter: "character",// Set the delimiter type (see left)
+search: false,
+tag: "div", // Set the wrapping element type (e.g. "div")
+customClass: "letter", // Add a custom class to wrappers
+generateIndexID: true,// Add #customClass-i to wrappers
+generateValueClass: true,
+returnGenerated: true
+});
+// custom movements
+
+$.Velocity.RegisterUI("explore", {
+defaultDuration: 1000,
+calls: [
+
+[ { textShadowX: '+=.2em', rotateY: 45 }, 1 ],
+// [ { rotateY: 45 }, 1 ],
+]
+});
+
+$.Velocity.RegisterUI("exploreChaos", {
+defaultDuration: 1000,
+calls: [
+
+// [ { textShadowY: 125, textShadowX: -5 }, 1 ],
+[{textShadowBlur: "+=2em"}, 1, {loop:true}],
+
+]
+});
+
+
+$.Velocity.RegisterUI("panning", {
+defaultDuration: 1000,
+calls: [
+
+[ { textShadowY: 80}, 1, {loop:true} ]
+// [ { translateY: '-=.5em'}, 1, {loop:2} ]
+]
+});
+
+
+
+//run sequence
+
+$('#explore').click(function(){
+
+  // selecting each element that was created from blasting above and given a class of letter
+var $element = $('.letter').toArray()
+//selecting the original div in order to be able to target the entire phase/element for high order coreography
+var $elementWord = $('#explore')
+  var animeTime = 500;
+var animationSequence = []
+for (var i = 0; i < $element.length; i++){
+// var randomize = Math.floor((Math.random() * alphabet.length) + 1);
+phaseOne =  { e: $element[i], p: "explore" , options: {duration: animeTime}},
+// phaseTwo =  { e:$element[i] , p: "exploreChaos" , options: {delay: 100, duration: animeTime, complete: function(){}}},
+
+animationSequence.push(phaseOne)
+// animationSequence.push(phaseTwo)
+}
+
+//outside the for loop call the animation that will happen after each character has completed its animation based on for loop
+phaseThree = { e:$element , p: "panning" , o: {delay: 1000, duration: animeTime}},
+//push animatino to sequence
+animationSequence.push(phaseThree)
+
+  // console.log('working')
+$.Velocity.RunSequence(animationSequence);
+  
+})
+
+
+</script>
+
+<!-- ENGAGE TITLE CARD VELOCITY ANIMATION-->
+<script>
+
+$("#engage").blast({   
+delimiter: "character",// Set the delimiter type (see left)
+search: false,
+tag: "div", // Set the wrapping element type (e.g. "div")
+customClass: "engaged", // Add a custom class to wrappers
+generateIndexID: true,// Add #customClass-i to wrappers
+generateValueClass: true,
+returnGenerated: true
+});
+
+
+$.Velocity.RegisterUI("icon", {
+    defaultDuration: 3000,
+    calls: [ 
+            
+            [ { rotateZ: -45 }, 1 ],
+         ]
+});
+
+$.Velocity.RegisterUI("engage", {
+    defaultDuration: 3000,
+    calls: [ 
+    // [ { boxShadowSpread: 50 }, 1 ],
+[ { boxShadowX: '+=.3em', boxShadowY: '+=.3em', boxShadowBlur: '+=3em', boxShadowSpread: '+=1.2em'}, 1, { loop:1} ],
+
+            
+         ]
+});
+
+$('#engageTitle').click(function(){
+  var $element = $('.engaged')
+  var $elementWord = $('#engage')
+  var $elementIcon = $('#engageIcon')
+
+  $elementIcon.velocity("engage", {delay:400})
+  // $element.velocity("engage", {delay:1000})
+  // $elementWord.velocity("engage", {sequenceQueue: false, delay:400})
+})
+// var animeTime = 1280;
+// var animationSequence = []
+// for (var i = 0; i < $element.length; i++){
+// animateAlphabet =  { e: $element[i], p: { opacity: 1} , options: {duration: animeTime}},
+//    animationSequence.push(animateAlphabet)
+//    // console.log(animationSequence)
+// }
+
+// $.Velocity.RunSequence(animationSequence);
+
+</script>
+
+<!-- RECREATE TITLE CARD VELOCITY ANIMATION-->
+<script>
+
+//shrinking the title text in order to oridomi it
+  var $element = $('#reCreate')
+
+
+  // $element.velocity({scale:.5 }, {delay:0})
+
+//oridoming the recreate title
+var folded = new OriDomi('#reCreate', {
+  vPanels:         10,     // number of panels when folding left or right (vertically oriented)
+  hPanels:         10,     // number of panels when folding top or bottom
+  speed:           1200,  // folding duration in ms
+  ripple:          2,     // backwards ripple effect when animating
+  shadingIntesity: .5,    // lessen the shading effect
+  perspective:     800,   // smaller values exaggerate 3D distortion
+  maxAngle:        40,    // keep the user's folds within a range of -40 to 40 degrees
+  shading:         'soft' // change the shading type
+});
+
+folded.fracture(18);
+
+
+</script>
+
+
+<!-- WRAP UP TITLE CARD VELOCITY ANIMATION-->
+<script>
+
+$("#wrap").blast({   
+delimiter: "character",// Set the delimiter type (see left)
+search: false,
+tag: "div", // Set the wrapping element type (e.g. "div")
+customClass: "wraped", // Add a custom class to wrappers
+generateIndexID: true,// Add #customClass-i to wrappers
+generateValueClass: true,
+returnGenerated: true
+});
+
+$.Velocity.RegisterUI("wrapSet", {
+    defaultDuration: 3000,
+    calls: [ 
+            
+            [ { fontSize: "+=.09em", letterSpacing: '-=.09em', skewZ: -45 }, 1 ],
+            [ { textShadowX: "+=.9em", textShadowY: '-=.9em', }, 1 ],
+         ]
+});
+
+$.Velocity.RegisterUI("circle", {
+    defaultDuration: 3000,
+    calls: [ 
+            
+            [ { borderRadius: '25%' }, 1 ],
+         ]
+});
+$.Velocity.RegisterUI("wrap", {
+    defaultDuration: 1000,
+    calls: [ 
+    // [ { textShadowY: 50 }, 1 ],
+    // [ { marginLeft: 20, textShadowY: -25 }, 1 ],
+    [ { fontSize: '/=2' }, 1 ],
+   // [{ margin: function(i, total) {return  i*100;}}, 1]
+            
+         ]
+});
+
+  var $element = $('.wraped')
+  var $elementWord = $('#wrap')
+  var $thing = $('#wrapToo')
+  // $elementWord.velocity('wrap', {delay:0})
+  // $thing.velocity('wrap', {delay:0})
+
+$('#wrapUpTitle').click(function(){
+
+  // var $element = $('.wraped')
+  // var $elementWord = $('#wrap')
+  // var $thing = $('#wrapToo')
+
+  // $elementWord.velocity({translateX: "-=20%"}, {duration: 10,delay:0})
+
+  // $elementIcon.velocity("icon", {delay:1000})
+  // $elementIcon.velocity("engage", {delay:1000})
+
+
+var animeTime = 1280;
+var move = '.5em'
+
+var animationSequence = []
+for (var i = 0; i < $element.length; i++){
+
+// animateAlphabet =  { e: $element[i], p: 'wrap' ,options: {duration: 400, drag: true}},
+   // animationSequence.push(animateAlphabet)
+   // console.log(animationSequence)
+   // move +="1em"
+}
+
+phaseTwo = { e:$element , p: { textShadowX:  function(i, total) {return  i + Math.floor((Math.random() * 100))}, translateY: function(i, total) {return  i + Math.floor((Math.random() * 100))}} , o: {stagger: 400, delay: 1000, duration: animeTime, loop: true}},
+   animationSequence.push(phaseTwo)
+
+
+// phaseThree = { e:$element , p: {translateY: function(i, total) {return  i + Math.floor((Math.random() * 100))}} , o: {stagger: 400, sequenceQueue: false,  duration: animeTime}},
+   // animationSequence.push(phaseThree)
+
+
+// phaseFour = { e:$element , p: "circle" , o: {stagger: 400, delay: 1000, duration: animeTime}},
+   // animationSequence.push(phaseFour)
+
+$.Velocity.RunSequence(animationSequence);
+
+})
+
+  // $elementWord.velocity({width: "-=30%", translateX: '20%'}, {delay:100})
+  // $element.velocity('recreateSet', {delay:100})
+
+</script>
+
+<!-- MLK Canvas canvastwo -->
+<script>
+// create mlk canvas
+var canvasTwo =new fabric.Canvas('canvasTwo', 
+{
+
+      controlsAboveOverlay:true,
+        centeredScaling:true,
+        // allowTouchScrolling: true
+}
+
+  )
+//make the fabric canvas the full width of the window
+window.addEventListener('resize', resizeCanvas, false);
+function resizeCanvas() {
+canvasTwo.setHeight(window.innerHeight/1.5);
+canvasTwo.setWidth(window.innerWidth/1.35);
+canvasTwo.renderAll();
+}
+// resize on init
+resizeCanvas();
+
+  var disableScroll = function(){
+    canvasTwo.allowTouchScrolling = false;
+  };
+
+  var enableScroll = function(){
+    canvasTwo.allowTouchScrolling = true;
+  };
+
+canvasTwo.on('mouse:down', disableScroll);
+  canvasTwo.on('object:moving', disableScroll);
+  canvasTwo.on('object:scaling', disableScroll);
+  canvasTwo.on('object:rotating', disableScroll);
+  canvasTwo.on('mouse:up', enableScroll);
+
+var yDown = 200;
+
+/* concerns and icons for canvas*/
+fabric.Image.fromURL('http://www.danielsilber-baker.com/myHostedContent/mlkIcons/justice.png', function(img) {
+// canvas.add(oImg);
+var img1 = img.scale(0.05);
+var text = new fabric.Text('Justice', {
+// var text = new fabric.Text(app4.todos[2].text, {
+fontFamily:  'Oswald',
+fontSize:40,
+// textAlign: 'left',
+fill: '#444',
+originX: 'right',
+originY: 'bottom',
+left: 120
+});
+
+
+canvasTwo.add(new fabric.Group([ img1, text], { left: 50, top: 10, perPixelTargetFind: true  }))
+});
+//group 2
+// <img src="style/images/icons/lulu-link.png" id="my-image2" width = "20%">
+fabric.Image.fromURL('icons/brotherhoodTwo.svg', function(img) {
+// canvas.add(oImg);
+var img2 = img.scale(.5);
+// var img1 = img.scale(0.25).set({ left: 100, top: 100 });
+var text2= new fabric.Text(app4.todos[1].text, {
+fontFamily:  'Oswald',
+fontSize:40,
+fill: '#444',
+originX: 'right',
+originY: 'bottom',
+left: 120
+});
+// var imgElement = document.getElementById('my-image');
+// var imgInstance = new fabric.Image(imgElement, {
+//   opacity: 0.85
+// });
+canvasTwo.add(new fabric.Group([ img2, text2], { left: 20, top: 140 }))
+});
+//group 3
+fabric.Image.fromURL('icons/world.svg', function(img) {
+// canvas.add(oImg);
+var img3 = img.scale(0.5);
+// var img1 = img.scale(0.25).set({ left: 100, top: 100 });
+var textThree= new fabric.Text(app4.todos[3].text, {
+fontFamily:  'Oswald',
+fontSize:40,
+fill: '#444',
+originX: 'right',
+originY: 'bottom',
+left: 120
+});
+// var imgElement = document.getElementById('my-image');
+// var imgInstance = new fabric.Image(imgElement, {
+//   opacity: 0.85
+// });
+canvasTwo.add(new fabric.Group([ img3, textThree], { left: 5, top: 250 }))
+});
+//group 4 - Truth
+fabric.Image.fromURL('icons/truth.svg', function(img) {
+// canvas.add(oImg);
+var img4= img.scale(0.25);
+// var img1 = img.scale(0.5).set({ left: 100, top: 100 });
+var textFour= new fabric.Text(app4.todos[0].text, {
+fontFamily:  'Oswald',
+fontSize:40,
+fill: '#444',
+originX: 'center',
+originY: 'center',
+left: 120
+});
+// var imgElement = document.getElementById('my-image');
+// var imgInstance = new fabric.Image(imgElement, {
+//   opacity: 0.85
+// });
+canvasTwo.add(new fabric.Group([ img4, textFour], { left: 50, top: 360 }))
+});
+canvasTwo.backgroundColor = '#FCFCFC';
+canvasTwo.selectionColor = 'rgba(0,255,0,0.3)';
+canvasTwo.selectionBorderColor = 'red';
+canvasTwo.selectionLineWidth = 5;
+</script>
+
+<!-- interactive canvas -->
+<script>
+// var canvas =new fabric.Canvas('canvas');
+// canvas.selectionColor = 'rgba(0,255,0,0.3)';
+// canvas.selectionBorderColor = 'red';
+// canvas.selectionLineWidth = 5;
+// window.addEventListener('resize', resizeCanvas, false);
+// function resizeCanvas() {
+// canvas.setHeight(window.innerHeight/1.3);
+// canvas.setWidth(window.innerWidth/1.6);
+// canvas.renderAll();
+// }
+// // resize on init
+// resizeCanvas();
+// canvas.backgroundColor = 'rgb(255, 228, 125)'
+var canvas =new fabric.Canvas('canvas', 
+{
+
+      controlsAboveOverlay:true,
+        centeredScaling:true,
+        // allowTouchScrolling: true
+}
+
+  )
+//make the fabric canvas the full width of the window
+window.addEventListener('resize', resizeCanvas, false);
+function resizeCanvas() {
+canvas.setHeight(window.innerHeight/1.5);
+canvas.setWidth(window.innerWidth/1.5);
+canvas.renderAll();
+}
+// resize on init
+resizeCanvas();
+
+  var disableScroll = function(){
+    canvas.allowTouchScrolling = false;
+  };
+
+  var enableScroll = function(){
+    canvas.allowTouchScrolling = true;
+  };
+
+canvas.on('mouse:down', disableScroll);
+  canvas.on('object:moving', disableScroll);
+  canvas.on('object:scaling', disableScroll);
+  canvas.on('object:rotating', disableScroll);
+  canvas.on('mouse:up', enableScroll);
+
+var textHolder = [];
+
+function create(){
+for (i = 0; i < app4.checkedNames.length; i++) {
+var text = new fabric.Text(app4.checkedNames[i], {
+fontFamily:  'oswald',
+fontSize:40,
+fill: '#444',
+left:0,
+top: 15*i });
+canvas.add(text)
+textHolder.push(text);
+console.log(textHolder);
+console.log(yDown)
+}
+}
+
+
+
+</script>
+<script>
+
+// nexus ui instantiate
+
+nx.onload = function() {
+
+// nx.colorize("font-size","10%")
+
+nx.labelSize(40)
+
+nx.colorize("accent", "#269288");
+
+// nx.colorize("accent", "#1ac");
+
+// next I need to add a function to change the color of the text as well
+function updateColor(){
+// var $selector = $('.theCanvas')
+var $one = slider1.val
+var $two = slider2.val
+var $three = slider3.val
+var $colorOne = Math.round($one.value*100)
+var $colorTwo = Math.round($two.value*100)
+var $colorThree = Math.round($three.value*100)
+var $color = $colorOne + $colorTwo + $colorThree
+var $wholeColor = String('rgb(' + $colorOne + ', ' + $colorTwo + ',  ' + $colorThree + ',)')
+// $selector.css('background-color', '$wholeColor')
+// $selector.css('background-color', 'rgb(39,70,70)')
+var redish = new fabric.Color('#f55');
+var greenish = new fabric.Color('#5f5');
+var $test = redish.overlayWith(greenish).toHex(); // "AAAA55"
+// redish.toGrayscale().toHex(); // "A1A1A1"
+// canvas.backgroundColor='rgb(' + $colorOne + ","+$colorTwo+ ',' + $colorThree+')';
+canvas.backgroundColor='hsl(' + $colorOne + ","+$colorTwo+ '%' + ',' + $colorThree + '%'+')';
+canvas.renderAll();
+
+}
+
+// function to update text color
+function updateTextColor(){
+// var $selector = $('.theCanvas')
+var $one = slider4.val
+var $two = slider5.val
+var $three = slider6.val
+var $colorOne = Math.round($one.value*100)
+var $colorTwo = Math.round($two.value*100)
+var $colorThree = Math.round($three.value*100)
+var $color = $colorOne + $colorTwo + $colorThree
+var $wholeColor = String('rgb(' + $colorOne + ', ' + $colorTwo + ',  ' + $colorThree + ',)')
+
+for (i = 0; i < textHolder.length; i++) {
+//if selected-for each button
+// textHolder[i].set({fill: 'rgb(' + $colorOne + ","+$colorTwo+ ',' + $colorThree+')'})
+textHolder[i].set({fill: 'hsl(' + $colorOne + ","+$colorTwo+ '%' + ',' + $colorThree + '%'+')'})
+// textHolder[i].set({fill: 'hsl(0, 100%, 50%)'})
+
+}
+canvas.renderAll();
+
+}
+
+
+slider1.on('*', function(data){
+// var selector = select('.theCanvas')
+updateColor()
+// $selector.css('background-color','#444')
+})
+slider2.on('*', function(data){
+updateColor()
+})
+slider3.on('*', function(data){
+updateColor()
+})
+// nx.setLabels("on");
+
+// set up function for text color selector
+slider4.on('*', function(data){
+// var selector = select('.theCanvas')
+updateTextColor()
+// $selector.css('background-color','#444')
+})
+slider5.on('*', function(data){
+updateTextColor()
+})
+slider6.on('*', function(data){
+updateTextColor()
+})
+nx.setLabels("on");
+}
+</script>
+
+<script>
+sound = document.querySelector("audio"),
+toggle = document.querySelector(".toggle"),
+
+sound.pause()
+//playing and pausing
+
+state = false;
+document.querySelector(".toggle").addEventListener("click", function() {
+if (state === true) {
+sound.pause()
+state = false;
+toggle.innerHTML = "Play"
+
+
+// one.classList.add("paused");
+// two.classList.add("paused");
+// three.classList.add("paused");
+} else {
+sound.play()
+state = true;
+// toggle.innerHTML = "Pause"
+// one.classList.remove("paused");
+// two.classList.remove("paused");
+// three.classList.remove("paused");
+}
+});
+// Replaying
+document.querySelector("audio").addEventListener("ended", function() {
+// toggle.innerHTML = "Replay";
+// one.classList.add("paused");
+// two.classList.add("paused");
+// three.classList.add("paused");
+state = false;
+document.querySelector(".toggle").addEventListener("click", function() {
+if (state === true) {
+sound.pause()
+state = false;
+toggle.innerHTML = "Play"
+// one.classList.add("paused");
+// two.classList.add("paused");
+// three.classList.add("paused");
+} else {
+sound.play()
+state = true;
+toggle.innerHTML = "Pause"
+// one.classList.remove("paused");
+// two.classList.remove("paused");
+// three.classList.remove("paused");
+}
+});
+})
+</script>
+<!-- call for slabtext -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
+<script src="libraries/jquery.slabtext.min.js"></script>
+<script>
+// Function to slabtext the H1 headings
+function slabTextHeadlines() {
+$("h4").slabText({
+// Don't slabtext the headers if the viewport is under 380px
+"viewportBreakpoint":380
+});
+$("#finalQuote").slabText({
+// Don't slabtext the headers if the viewport is under 380px
+"viewportBreakpoint":380
+});
+};
+// Load fonts using google font loader
+var WebFontConfig = {
+google: { families: [ 'Open+Sans:400,700:latin', 'Oswald:700:latin' ] },
+// slabText the headers when the font has finished loading (or not)
+fontactive: slabTextHeadlines,
+fontinactive: slabTextHeadlines
+};
+(function() {
+var wf = document.createElement('script');
+wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+wf.type = 'text/javascript';
+wf.async = 'true';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(wf, s);
+})();
+</script>
+
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script>
+window.sr = ScrollReveal({mobile:true, reset:true});
+sr.reveal('.content');
+
+sr.reveal('.contentCanvas');
+
+sr.reveal('#explore', { duration: 200, afterReveal: function (domEl) {
+    console.log("functioning!")
+
+    
+}})
+
+</script>
+</body>
+</html>
+
+</body>
+</html>

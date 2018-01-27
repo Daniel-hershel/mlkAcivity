@@ -1,0 +1,240 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- not using p5 so far -->
+<!-- <script language="javascript" type="text/javascript" src="libraries/p5.js"></script> -->
+<!-- <script language="javascript" src="libraries/p5.dom.js"></script> -->
+<script src =  "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<!--   materialize for grid -->
+<link rel="stylesheet" href="materialize.css">
+
+<!--   Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+
+<!-- load vue for working with arrays and front end js -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<!-- load fabric for the front end magic -->
+<script language="javascript" type="text/javascript" src="fabric.js"></script>
+
+<!-- //fabric  code -->
+<!-- <script language="javascript" type="text/javascript" src="sketch.js"></script> -->
+
+<!-- load all the google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Cinzel|Josefin+Sans|Modak|Montserrat|Orbitron" rel="stylesheet">
+
+<!-- link to less -->
+<link rel="stylesheet/less" type="text/css" href="styles.less" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.6.1/less.min.js" charset="utf-8"></script>
+<style>
+
+/*setting style for checkboxes (as cards) hre to override styling from materialize css*/
+input[type=checkbox] + label {
+
+border: 5px solid #384956;
+border-radius: 8px;
+padding-top: 150px;
+color: #0C294C;
+font-style: italic;
+font-size: 24px;
+font-family: 'Alfa Slab One', cursive;
+/*background: #0C294C;*/
+display: block;
+height: 400px;
+}
+
+input[type="checkbox"] + label span:hover  {
+    background: #729FC1;
+}
+
+/*styling for checkboxes when they are checked*/
+input[type=checkbox]:checked + label {
+color: #f00;
+font-style: normal;
+background: #0C294C;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>IGL Activity #1</h1>
+<h2>MLKs “Where Do We Go From Here?” Speech </h2>
+<h2> In it he identifies what we will call <br>'A Constellation of Concern'</h2>
+<canvas id="canvasTwo" class = "theCanvas" width="800" height="550" style="border:1px solid #000000"></canvas>
+
+<div class = "instructionsSmall">Clock on any of the words to manipulate them</div>
+
+
+<div class = "instructions"> Choose two of MLK's 'Concerns' to bring with you to the next step where you will choose two of your own as well </div>
+<!-- set up an instance of a vue app. and use the 'v-for' command to iterate through an array (json?) set below in the javascript associated with it by the div id -->
+<div id="app-4">
+
+<!-- create row for materialize grid -->
+<div class = "row">
+
+<!-- create an unordered list (is this really what I want?) of all the objects.text in the array -->
+<ul>
+
+<!-- iterate and for each entry create a list item with a class for materialize grid -->
+<li v-for="todo in todos"  class = "col s3 " >
+
+<input  type="checkbox" :id="todo.text" :value="todo.text" v-model="checkedNames">
+<label :for="todo.text">  {{ todo.text }}</label>
+
+</li>
+</ul>
+
+
+<div class = "instructions"> Choose two of your own 'concerns'.</div>
+
+  <p>{{ message }}</p>
+  <input id = "userConcernOne"  v-model="message" :value = "message">
+    <button v-on:click="addConcern">Add 1</button>
+
+      <p>{{ my_message }}</p>
+      <input id = "userConcernTwo"  v-model="my_message" :value = "my_message">
+    <button v-on:click="addConcernTwo">Add 2</button>
+</div>
+
+
+<span>User Concerns: {{ checkedNames }}</span>
+</div>
+
+<!-- 
+I think I need another way to help people generate ideas here. Maybe a little mini activity board? What would a brainstorm magic canvas look like just for text? -->
+<!-- <button>Click here to see what other people have said</button> -->
+
+<!-- add choose icons here -->
+
+<div class = "instructions"> And now a magic canvas with your 'constellation of concern'</div>
+
+<!-- create label and textarea for user input to append to magic canvas -->
+<div id = "inputZone">
+
+<!-- create a button to 'create' magic canvas : really runs function to append everything to fabric canvas -->
+<a class="ghost-buttonToo" onclick="create()"  href="#">Create</a>
+</div>
+
+<!-- create the fabric canvas -->
+<canvas id="canvas" class = "theCanvas" width="800" height="550" style="border:1px solid #000000"></canvas>
+
+
+<script>
+var app4 = new Vue({
+el: '#app-4',
+data: {
+
+todos: [
+{ text: 'Truth' },
+{ text: 'Brotherhood' },
+{ text: 'Justice' },
+{ text: 'A Better World' }
+],
+
+checkedNames: [],
+message: 'concern one',
+my_message: 'concern two'
+},
+
+ methods: {
+    addConcern: function (event) {
+
+      app4.checkedNames.push(app4.message);
+ 
+    },
+
+    addConcernTwo: function (event) {
+
+      app4.checkedNames.push(app4.my_message);
+ 
+    }
+  }
+
+})
+
+
+
+
+// app4.todos.push({ text: 'New item' })
+
+</script>
+
+
+<script>
+
+
+var canvasTwo =new fabric.Canvas('canvasTwo')
+
+//create instrtuctions
+
+// I want to make a canvas element out of each of them
+//   - underscore 'for each'
+//   - for loop through
+var yDown = 200;
+//how to I update this so that each time a new thing is added to the array it redraws or draws the new One
+//It would be the equivelant of update in D3
+for (i = 0; i < app4.todos.length; i++) {
+var text = new fabric.Text(app4.todos[i].text, {
+fontFamily:  'Alfa Slab One',
+fontSize:40,
+fill: '#FEFD95',
+left: yDown,
+top: 150*i });
+
+canvasTwo.add(text)
+
+console.log(yDown)
+}
+
+canvasTwo.selectionColor = 'rgba(0,255,0,0.3)';
+canvasTwo.selectionBorderColor = 'red';
+canvasTwo.selectionLineWidth = 5;
+
+</script>
+<script>
+
+
+//set the function to run on button press
+    //get value of box
+    //make it a farbic text object
+function create(){
+
+  var canvas =new fabric.Canvas('canvas')
+
+for (i = 0; i < app4.checkedNames.length; i++) {
+var text = new fabric.Text(app4.checkedNames[i], {
+fontFamily:  'Alfa Slab One',
+fontSize:40,
+fill: '#FEFD95',
+left: yDown,
+top: 150*i });
+
+canvas.add(text)
+
+console.log(yDown)
+}
+
+canvasTwo.selectionColor = 'rgba(0,255,0,0.3)';
+canvasTwo.selectionBorderColor = 'red';
+canvasTwo.selectionLineWidth = 5;
+
+
+
+
+      }
+
+</script>
+
+
+
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+
+
+</body>
+</html>
